@@ -3,8 +3,7 @@
 import os
 
 # Always prefer setuptools over distutils
-from setuptools import setup, find_packages
-
+from setuptools import find_packages, setup
 
 # https://packaging.python.org/guides/single-sourcing-package-version/
 # http://blog.ionelmc.ro/2014/05/25/python-packaging/
