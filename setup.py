@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+
 # Always prefer setuptools over distutils
 from setuptools import setup, find_packages
 
@@ -16,7 +17,7 @@ import project  # noqa: E402
 def load_requirements(path_dir=PATH_ROOT, comment_char='#'):
     with open(os.path.join(path_dir, 'requirements.txt'), 'r') as file:
         lines = [ln.strip() for ln in file.readlines()]
-    reqs = [ln[:ln.index(comment_char)] if comment_char in ln else ln for ln in lines]
+    reqs = [ln[: ln.index(comment_char)] if comment_char in ln else ln for ln in lines]
     reqs = [ln for ln in reqs if ln]
     return reqs
 
@@ -38,17 +39,14 @@ setup(
     download_url='https://github.com/PyTorchLightning/pytorch-lightning-conference-seed',
     license=project.__license__,
     packages=find_packages(exclude=['tests', 'docs']),
-
     long_description=project.__long_doc__,
     long_description_content_type='text/markdown',
     include_package_data=True,
     zip_safe=False,
-
     keywords=['deep learning', 'pytorch', 'AI'],
     python_requires='>=3.6',
     setup_requires=[],
     install_requires=load_requirements(PATH_ROOT),
-
     classifiers=[
         'Environment :: Console',
         'Natural Language :: English',

@@ -60,10 +60,6 @@ jobs:
           pip --version
           pip list
         shell: bash
-
-      - name: Run black
-        run:
-          black --check .
       - name: Run flake8
         run: flake8
       - name: Run Mypy

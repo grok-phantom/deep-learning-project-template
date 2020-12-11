@@ -11,19 +11,10 @@ from torchvision import transforms
 
 
 class LitAutoEncoder(pl.LightningModule):
-
     def __init__(self):
         super().__init__()
-        self.encoder = nn.Sequential(
-            nn.Linear(28 * 28, 64),
-            nn.ReLU(),
-            nn.Linear(64, 3)
-        )
-        self.decoder = nn.Sequential(
-            nn.Linear(3, 64),
-            nn.ReLU(),
-            nn.Linear(64, 28 * 28)
-        )
+        self.encoder = nn.Sequential(nn.Linear(28 * 28, 64), nn.ReLU(), nn.Linear(64, 3))
+        self.decoder = nn.Sequential(nn.Linear(3, 64), nn.ReLU(), nn.Linear(64, 28 * 28))
 
     def forward(self, x):
         # in lightning, forward defines the prediction/inference actions
