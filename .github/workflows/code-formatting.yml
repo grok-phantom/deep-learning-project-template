@@ -70,4 +70,4 @@ jobs:
           pip list
       - name: mypy check
         run: |
-          mypy .
+          mypy --ignore-missing-imports --warn-no-return --warn-redundant-casts --disallow-incomplete-defs .

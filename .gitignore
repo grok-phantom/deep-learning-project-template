@@ -36,7 +36,6 @@ test_tube_data/
 datasets/
 model_weights/
 tests/save_dir  
-tests/tests_tt_dir/
 processed/
 raw/
 
@@ -61,6 +60,7 @@ coverage.xml
 *.cover
 .hypothesis/
 .pytest_cache/
+.dmypy.json
 
 # Translations
 *.mo
