@@ -54,18 +54,14 @@ jobs:
       # You can test your matrix by printing the current Python version
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
+
       - name: Install dependencies
         run: |
           pip install --requirement requirements.txt --upgrade --quiet --find-links https://download.pytorch.org/whl/cpu/torch_stable.html --use-feature=2020-resolver
           pip install --requirement tests/requirements.txt --quiet --use-feature=2020-resolver
           pip install black flake8 mypy pytest
         shell: bash
-      - name: Run flake8
-        run: |
-          flake8
-      - name: Run Mypy
-        run: |
-          mypy  --ignore-missing-imports --warn-no-return --warn-redundant-casts --disallow-incomplete-defs .
+
       - name: Tests
         run: |
           coverage run --source project -m py.test project tests -v --junitxml=junit/test-results-${{ runner.os }}-${{ matrix.python-version }}.xml
