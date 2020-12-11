@@ -1,13 +1,12 @@
 from argparse import ArgumentParser
-import torch
-from torch import nn
-import torch.nn.functional as F
-from torch.utils.data import DataLoader
-import pytorch_lightning as pl
-from torch.utils.data import random_split
 
-from torchvision.datasets.mnist import MNIST
+import pytorch_lightning as pl
+import torch
+import torch.nn.functional as F
+from torch import nn
+from torch.utils.data import DataLoader, random_split
 from torchvision import transforms
+from torchvision.datasets.mnist import MNIST
 
 
 class LitAutoEncoder(pl.LightningModule):
